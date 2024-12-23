@@ -9,7 +9,7 @@ pipeline {
                         echo 'Deploying index.html to remote Apache server...'
 
                         // Copy the file to the remote server
-                        sh 'scp index.html ubuntu@ip-51-20-115-40:/var/www/html/'
+                        sh 'scp index.html ubuntu@ip-172-31-30-135:/var/www/html/'
                     }
                 }
             }
