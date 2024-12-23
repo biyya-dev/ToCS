@@ -8,13 +8,6 @@ pipeline {
                     script {
                         echo 'Deploying index.html to remote Apache server...'
 
-                        // Ensure the known_hosts file is available
-                        sh '''
-                        mkdir -p ~/.ssh
-                        echo "ip-51-20-115-40 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAt+d6X8+aInVs...your_public_key..." >> ~/.ssh/known_hosts
-                        chmod 644 ~/.ssh/known_hosts
-                        '''
-
                         // Copy the file to the remote server
                         sh 'scp index.html ubuntu@ip-51-20-115-40:/var/www/html/'
                     }
@@ -38,6 +31,6 @@ pipeline {
         }
         failure {
             echo 'Deployment failed. Check the logs for more details.'
-        }
-    }
+        }
+    }
 }
